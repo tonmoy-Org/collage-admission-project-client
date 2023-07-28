@@ -1,8 +1,11 @@
+import Banner from "../Banner/Banner";
+import Collage from "../Collage/Collage";
 
 const Home = () => {
     return (
         <div>
-           <h2 className="dark:text-slate-300">Hello this home</h2> 
+            <Banner></Banner>
+            <Collage></Collage>
         </div>
     );
 };

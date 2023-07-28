@@ -3,11 +3,15 @@ import github from '../../../assets/icon/github-logo.png'
 import linkedin from '../../../assets/icon/linkedin.png'
 import twitter from '../../../assets/icon/twitter.png'
 import facebook from '../../../assets/icon/facebook.png'
+import { Link } from 'react-router-dom'
 const Footer = () => {
     return (
         <footer className="footer p-10 bg-base-200 text-base-content">
             <div>
-                <img className='w-72' src={logo} alt="" />
+                <Link to='/' className="btn btn-ghost normal-case text-xl">
+                    <img className='w-12' src={logo} alt="" />
+                    <p className='uppercase font-bold'>Mentoring</p>
+                </Link>
                 <p>Lorem ipsum dolor sit amet, consectetur  adipiscing elit,  <br /> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <div className='flex gap-4 mt-4'>
                     <div className='transform transition duration-300 ease hover:-translate-y-1 hover:scale-95'>
