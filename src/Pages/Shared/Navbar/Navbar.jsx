@@ -1,8 +1,9 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, } from 'react-router-dom';
 import logo from '../../../assets/logo/Logo.png'
 import { useEffect, useState } from 'react';
 const Navbar = () => {
     const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light");
+    const navigate = useNavigate()
 
     const handleToggle = (e) => {
         if (e.target.checked) {
@@ -16,20 +17,34 @@ const Navbar = () => {
         localStorage.setItem("theme", theme);
         const localTheme = localStorage.getItem("theme");
         document.querySelector("html").setAttribute("data-theme", localTheme);
-    }, [theme])
+    }, [theme]);
+
+
+    const handleSearch = (event) => {
+        event.preventDefault();
+        const searchValue = event.target.search.value;
+        console.log(searchValue)
+        fetch(`http://localhost:5000/collage?college_name=${searchValue}`)
+            .then((res) => res.json())
+            .then((data) => {
+                navigate(`/search?results=${encodeURIComponent(JSON.stringify(data))}`);
+
+            });
+    };
+    // console.log(searchResults)
     return (
         <div>
-            <div className="navbar bg-base-100 px-6">
+            <div className="navbar fixed z-10  bg-base-100 px-6">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><a>Home</a></li>
-                            <li><a>Colleges</a></li>
-                            <li><a>Admission</a></li>
-                            <li><a>My College</a></li>
+                            <li><Link to='/'>Home</Link></li>
+                            <li><Link to='/collages'>Colleges</Link></li>
+                            <li><Link to='/'>Admission</Link></li>
+                            <li><Link to='/'>My College</Link></li>
                         </ul>
                     </div>
                     <Link to='/' className="btn btn-ghost normal-case text-xl">
@@ -39,17 +54,18 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu font-semibold menu-horizontal px-1">
-                        <li><a>Home</a></li>
-                        <li><a>Colleges</a></li>
-                        <li><a>Admission</a></li>
-                        <li><a>My College</a></li>
+                        <li><Link to='/'>Home</Link></li>
+                        <li><Link to='/collages'>Colleges</Link></li>
+                        <li><Link to='/'>Admission</Link></li>
+                        <li><Link to='/'>My College</Link></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
+
                     <div className="form-control me-3 hidden md:block">
-                        <form action="">
-                            <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto me-3" required />
-                            <button className="btn btn-outline btn-info">Search</button>
+                        <form onSubmit={handleSearch}>
+                            <input type="text" name="search" placeholder="Search" className="input input-bordered w-24 md:w-auto me-3" required />
+                            <input className="btn btn-outline btn-info" type="submit" value="Search" />
                         </form>
                     </div>
 
@@ -73,9 +89,9 @@ const Navbar = () => {
                 </div>
             </div>
             <div className="form-control me-4 px-8 py-3 lg:hidden">
-                <form action="" className="tems-center flex gap-2">
+                <form onSubmit={handleSearch} className="tems-center flex gap-2">
                     <input type="text" placeholder="Search" className="input input-bordered w-full" required />
-                    <button className="btn btn-outline btn-info  md:mt-0 md:ms-2">Search</button>
+                    <input className="btn btn-outline btn-info md:mt-0 md:ms-2" type="submit" value="Search" />
                 </form>
             </div>
         </div>

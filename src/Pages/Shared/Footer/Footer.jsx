@@ -15,16 +15,16 @@ const Footer = () => {
                 <p>Lorem ipsum dolor sit amet, consectetur  adipiscing elit,  <br /> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 <div className='flex gap-4 mt-4'>
                     <div className='transform transition duration-300 ease hover:-translate-y-1 hover:scale-95'>
-                        <a href="https://github.com/Tonmoy-Org"> <img className='w-6' src={github} alt="" /></a>
+                        <a href="https://github.com/Tonmoy-Org"> <img className='w-8' src={github} alt="" /></a>
                     </div>
                     <div className='transform transition duration-300 ease hover:-translate-y-1 hover:scale-95'>
-                        <a href="https://www.linkedin.com/in/md-tanvirhasantonmoy/"> <img className='w-6' src={linkedin} alt="" /></a>
+                        <a href="https://www.linkedin.com/in/md-tanvirhasantonmoy/"> <img className='w-8' src={linkedin} alt="" /></a>
                     </div>
                     <div className='transform transition duration-300 ease hover:-translate-y-1 hover:scale-95'>
-                        <a href="https://twitter.com/tonmoyOrg"> <img className='w-6' src={twitter} alt="" /></a>
+                        <a href="https://twitter.com/tonmoyOrg"> <img className='w-8' src={twitter} alt="" /></a>
                     </div>
                     <div className='transform transition duration-300 ease hover:-translate-y-1 hover:scale-95'>
-                        <a href="https://www.facebook.com/md.tanvirhasantonmoy.org?mibextid=ZbWKwL"> <img className='w-6' src={facebook} alt="" /></a>
+                        <a href="https://www.facebook.com/md.tanvirhasantonmoy.org?mibextid=ZbWKwL"> <img className='w-8' src={facebook} alt="" /></a>
                     </div>
                 </div>
             </div>
