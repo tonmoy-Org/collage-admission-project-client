@@ -1,11 +1,28 @@
 import { useForm } from "react-hook-form";
-
+import Swal from 'sweetalert2'
 
 const AdmissionFields = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = (data) => {
         console.log(data);
+        fetch('http://localhost:5000/admission', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                Swal.fire({
+                    title: 'Successfully Add Toys',
+                    text: 'Do you want to continue',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                })
+            })
     }
     return (
         <div>
@@ -42,7 +59,7 @@ const AdmissionFields = () => {
                             <label className="label">
                                 <span className="label-text">Candidate Email</span>
                             </label>
-                            <input type="email" defaultValue='email@gmail.com' {...register("email", { required: true })} name="email" placeholder="candidate Email" className="input input-bordered" />
+                            <input type="email" defaultValue='korim@gmail.com' {...register("email", { required: true })} name="email" placeholder="candidate Email" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">

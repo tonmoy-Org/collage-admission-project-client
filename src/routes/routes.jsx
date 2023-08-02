@@ -8,6 +8,8 @@ import Search from "../Pages/Search/Search";
 import Details from "../Pages/Details/Details";
 import Admission from "../Pages/Admission/Admission";
 import AdmissionFields from "../Pages/AdmissionFields/AdmissionFields";
+import MyCollage from "../Pages/MyCollage/MyCollage";
+import Login from "../Pages/Shared/Login/Login";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +40,14 @@ const router = createBrowserRouter([
       {
         path: 'admission-field',
         element: <AdmissionFields></AdmissionFields>
+      },
+      {
+        path: 'my-collage',
+        element: <MyCollage></MyCollage>
+      },
+      {
+        path: 'login',
+        element: <Login></Login>
       }
     ]
   },
