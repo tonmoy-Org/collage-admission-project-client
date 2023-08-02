@@ -3,7 +3,6 @@ import AdmissionCard from "./AdmissionCard";
 
 const Admission = () => {
     const [collage] = useCollageLoader();
-    console.log(collage)
     return (
         <div>
             <div className="hero h-72 bg-fixed pt-14" style={{ backgroundImage: 'url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)' }}>

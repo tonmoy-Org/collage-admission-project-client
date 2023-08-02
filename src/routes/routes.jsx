@@ -10,6 +10,8 @@ import Admission from "../Pages/Admission/Admission";
 import AdmissionFields from "../Pages/AdmissionFields/AdmissionFields";
 import MyCollage from "../Pages/MyCollage/MyCollage";
 import Login from "../Pages/Shared/Login/Login";
+import SignUp from "../Pages/Shared/SignUp/SignUp";
+import Profile from "../Pages/Profile/Profile";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +50,14 @@ const router = createBrowserRouter([
       {
         path: 'login',
         element: <Login></Login>
+      },
+      {
+        path: 'signUp',
+        element: <SignUp></SignUp>
+      },
+      {
+        path: 'profile',
+        element: <Profile></Profile>
       }
     ]
   },

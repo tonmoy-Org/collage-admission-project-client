@@ -3,14 +3,16 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 import { useContext } from "react";
 import { useState } from "react";
 import SocialLogIn from "../SocialLogIn/SocialLogIn";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { register, handleSubmit,  formState: { errors } } = useForm();
     const { signIn } = useContext(AuthContext);
     const [show, setShow] = useState(false);
     const [error, setError] = useState('');
 
+    const location = useLocation();
+    const navigate = useNavigate();
     const from = location.state?.from?.pathname || "/";
 
     const onSubmit = data => {
@@ -23,7 +25,7 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
-                Navigate(from, { replace: true });
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 setError(error.message);

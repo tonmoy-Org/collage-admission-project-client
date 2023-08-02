@@ -1,12 +1,11 @@
 import { Link, useNavigate, } from 'react-router-dom';
 import logo from '../../../assets/logo/Logo.png'
 import { useEffect, useState } from 'react';
-import { useContext } from 'react';
-import { AuthContext } from '../../../Provider/AuthProvider';
+import useAuth from '../../../hooks/useAuth';
 const Navbar = () => {
     const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light");
     const navigate = useNavigate();
-    const { user, logOut } = useContext(AuthContext);
+    const { user, logOut } = useAuth();
     const handleLogOut = () => {
         logOut()
             .then(() => { })
@@ -51,6 +50,7 @@ const Navbar = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                            <li><Link to='/profile'>Profile</Link></li>
                             <li><Link to='/'>Home</Link></li>
                             <li><Link to='/collages'>Colleges</Link></li>
                             <li><Link to='/admission'>Admission</Link></li>
@@ -96,6 +96,7 @@ const Navbar = () => {
                                             <span className="badge">New</span>
                                         </p>
                                     </li>
+                                    <li><Link to='/profile'>Profile</Link></li>
                                     <li><Link to='/'>Home</Link></li>
                                     <li><Link to='/collages'>Colleges</Link></li>
                                     <li><Link to='/admission'>Admission</Link></li>
