@@ -4,7 +4,6 @@ import CollageCard from "./CollageCard";
 
 const Collage = () => {
     const [collage] = useCollageLoader();
-    console.log(collage)
     return (
         <div>
             <div className="hero h-72 bg-fixed pt-14" style={{ backgroundImage: 'url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)' }}>
@@ -15,7 +14,7 @@ const Collage = () => {
                     </div>
                 </div>
             </div>
-            <div  className="grid lg:grid-cols-3 lg:mx-52 mt-8 mb-20">
+            <div  className="grid lg:grid-cols-3 gap-10 w-8/12 mx-auto mt-8 mb-20">
                 {collage.map(data => (
                     <CollageCard
                     key={data._id}

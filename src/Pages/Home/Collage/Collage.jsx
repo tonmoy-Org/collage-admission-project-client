@@ -3,7 +3,7 @@ import CollageCard from "./CollageCard";
 
 const Collage = () => {
     const [collage] = useCollageLoader();
-    const slicedCollage = collage.slice(0, 6);
+    const slicedCollage = collage.slice(0, 3);
     return (
         <div className="mb-20">
             <div className="text-center py-20">

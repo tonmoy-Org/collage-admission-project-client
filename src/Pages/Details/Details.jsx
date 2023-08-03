@@ -4,8 +4,8 @@ import { useLoaderData } from "react-router-dom";
 const Details = () => {
     const data = useLoaderData();
     console.log(data)
-    const { college_image, college_name, admission_dates, research_history
-    } = data;
+    const { college_image, college_name, admission_dates, research_history,
+        events, sports } = data;
     return (
         <div>
             <div className="hero h-72" style={{ backgroundImage: 'url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)' }}>
@@ -23,10 +23,24 @@ const Details = () => {
                             <img style={{ width: "300px", height: "300px" }} src={college_image} alt="Album" />
                         </figure>
                     </div>
-                    <div className="card-body">
+                    <div className="mt-16">
                         <h2 className="card-title mb-0">Collage Name: {college_name}</h2>
-                        <p>{admission_dates}</p>
-                        <p>{research_history}</p>
+                        <p className="pt-2">{admission_dates}</p>
+                        <p className="pt-5">{research_history}</p>
+                        <div className="lg:flex  gap-10 mt-8">
+                            <ul>
+                                <label className="text-xl font-semibold">Events</label>
+                                <li>{events[0]}</li>
+                                <li>{events[1]}</li>
+                                <li>{events[2]}</li>
+                            </ul>
+                            <ul>
+                                <label className="text-xl font-semibold">Sports</label>
+                                <li>{sports[0]}</li>
+                                <li>{sports[1]}</li>
+                                <li>{sports[2]}</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

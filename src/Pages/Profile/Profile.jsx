@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
+import { useState } from "react";
 
 
 const Profile = () => {
@@ -9,31 +10,40 @@ const Profile = () => {
 
     const api = import.meta.env.VITE_API_KEY;
     const img_hosting_url = `https://api.imgbb.com/1/upload?key=${api}`;
-
+    const [error, setError] = useState('');
     const handleFileChange = (event) => {
         const selectedFile = event.target.files[0];
         const formData = new FormData();
         formData.append('image', selectedFile);
-    
+      
         fetch(img_hosting_url, {
           method: 'POST',
           body: formData,
         })
           .then((res) => res.json())
           .then((imgRes) => {
-            if(imgRes.success){
-                const imgUrl = imgRes.data.display_url;
-                console.log(imgUrl);
-                updateUserProfile(user?.displayName , imgUrl);
+            if (imgRes.success) {
+              const imgUrl = imgRes.data.display_url;
+              console.log(imgUrl);
+              updateUserProfile(user?.displayName, imgUrl);
+              window.location.reload(); 
             }
+          })
+          .catch((error) => {
+            // Handle the error here
+            setError(error);
+            console.error('Error while uploading the image:', error);
+            // Optionally, you can also show an error message to the user if needed.
           });
       };
+      
     const onSubmit = (data) => {
         const updateInfo = data.name;
         const profileEmail = data.email;
         console.log(profileEmail)
         updateUserProfile(updateInfo);
         updateUserEmail(profileEmail);
+        // window.location.reload(); 
         Swal.fire({
             title: 'Successfully Updated Car Information',
             text: 'Do you want to continue',
@@ -106,6 +116,7 @@ const Profile = () => {
                                     onChange={handleFileChange}
                                 />
                             </div>
+                            <div className="text-red-400">{error}</div>
                         </div>
                     </div>
 

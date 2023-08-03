@@ -1,18 +1,22 @@
 import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2'
 import useAuth from "../../hooks/useAuth";
+import { useLoaderData } from "react-router-dom";
 
 const AdmissionFields = () => {
+    const data = useLoaderData();
+    const {college_image, college_name, admission_dates } = data;
     const { register, handleSubmit, formState: { errors } } = useForm();
     const {user} = useAuth();
     const onSubmit = (data) => {
-        console.log(data);
+        const college = {college_name: college_name, college_image: college_image};
+        const admissionInfo = {...data, ...college};
         fetch('http://localhost:5000/admission', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(admissionInfo)
         })
             .then(res => res.json())
             .then(data => {
@@ -31,7 +35,8 @@ const AdmissionFields = () => {
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">
-                        <h1 className="mb-5 text-4xl font-bold">Input Your Info</h1>
+                        <h1 className="mb-5 text-4xl font-bold">{college_name}</h1>
+                        <p className="text-xl">{admission_dates}</p>
                     </div>
                 </div>
             </div>
