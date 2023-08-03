@@ -11,7 +11,7 @@ const AdmissionFields = () => {
     const onSubmit = (data) => {
         const college = {college_name: college_name, college_image: college_image};
         const admissionInfo = {...data, ...college};
-        fetch('http://localhost:5000/admission', {
+        fetch('https://collage-admission-server-six.vercel.app/admission', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

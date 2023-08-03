@@ -2,6 +2,8 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 
 
 const Profile = () => {
@@ -56,6 +58,9 @@ const Profile = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>{`Profile - Mentoring`}</title>
+            </Helmet>
             <div className="hero h-72 bg-fixed pt-14" style={{ backgroundImage: 'url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)' }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
@@ -66,10 +71,10 @@ const Profile = () => {
             </div>
             <div className="grid lg:grid-cols-3 my-20 gap-10">
                 <div>
-                    <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+                    <ul className="menu p-10  w-80 h-full bg-base-200 text-base-content">
                         {/* Sidebar content here */}
-                        <li><a>Sidebar Item 1</a></li>
-                        <li><a>Sidebar Item 2</a></li>
+                        <Link className="mb-4" to='/'><li>Home</li></Link>
+                        <Link to='/profile'><li>Profile</li></Link>
                     </ul>
                 </div>
                 <div>

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import useCollageLoader from "../../hooks/useCollageLoader";
 import AdmissionCard from "./AdmissionCard";
 
@@ -5,6 +6,9 @@ const Admission = () => {
     const [collage] = useCollageLoader();
     return (
         <div>
+            <Helmet>
+                <title>{`Admission - Mentoring`}</title>
+            </Helmet>
             <div className="hero h-72 bg-fixed pt-14" style={{ backgroundImage: 'url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)' }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
