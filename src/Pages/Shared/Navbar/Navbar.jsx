@@ -43,7 +43,7 @@ const Navbar = () => {
     // console.log(searchResults)
     return (
         <div>
-            <div className="navbar fixed z-10  bg-base-100 px-6">
+            <div className="navbar   bg-base-100 lg:px-6">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -70,7 +70,7 @@ const Navbar = () => {
                         <li><Link to='/my-collage'>My College</Link></li>
                     </ul>
                 </div>
-                <div className="navbar-end">
+                <div className="navbar-end ps-16">
                     <div className="flex items-center mx-auto font-semibold">
                         <div className="form-control me-3 hidden md:block">
                             <form onSubmit={handleSearch}>
@@ -109,10 +109,10 @@ const Navbar = () => {
                             {
                                 user ?
                                     <></>
-                                    : <Link to='/login' className='me-3 text-[#1890ff]'>Login</Link>
+                                    : <Link to='/login' className='lg:me-3 text-[#1890ff]'>Login</Link>
                             }
                         </div>
-                        <label className="swap swap-rotate ms-3">
+                        <label className="swap swap-rotate lg:ms-3 ps-5 lg:ps-0">
 
                             {/* this hidden checkbox controls the state */}
                             <input type="checkbox"
@@ -130,9 +130,9 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
-            <div className="form-control me-4 px-8 py-3 lg:hidden">
+            <div className="form-control pe-4 px-8 py-3 lg:hidden bg-slate-600">
                 <form onSubmit={handleSearch} className="tems-center flex gap-2">
-                    <input type="text" placeholder="Search" className="input input-bordered w-full" required />
+                    <input type="text" name="search" placeholder="Search" className="input input-bordered w-full" required />
                     <input className="btn btn-outline btn-info md:mt-0 md:ms-2" type="submit" value="Search" />
                 </form>
             </div>

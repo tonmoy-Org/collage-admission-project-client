@@ -17,28 +17,28 @@ const Profile = () => {
         const selectedFile = event.target.files[0];
         const formData = new FormData();
         formData.append('image', selectedFile);
-      
+
         fetch(img_hosting_url, {
-          method: 'POST',
-          body: formData,
+            method: 'POST',
+            body: formData,
         })
-          .then((res) => res.json())
-          .then((imgRes) => {
-            if (imgRes.success) {
-              const imgUrl = imgRes.data.display_url;
-              console.log(imgUrl);
-              updateUserProfile(user?.displayName, imgUrl);
-              window.location.reload(); 
-            }
-          })
-          .catch((error) => {
-            // Handle the error here
-            setError(error);
-            console.error('Error while uploading the image:', error);
-            // Optionally, you can also show an error message to the user if needed.
-          });
-      };
-      
+            .then((res) => res.json())
+            .then((imgRes) => {
+                if (imgRes.success) {
+                    const imgUrl = imgRes.data.display_url;
+                    console.log(imgUrl);
+                    updateUserProfile(user?.displayName, imgUrl);
+                    //   window.location.reload(); 
+                }
+            })
+            .catch((error) => {
+                // Handle the error here
+                setError(error);
+                console.error('Error while uploading the image:', error);
+                // Optionally, you can also show an error message to the user if needed.
+            });
+    };
+
     const onSubmit = (data) => {
         const updateInfo = data.name;
         const profileEmail = data.email;
@@ -109,8 +109,20 @@ const Profile = () => {
                                     htmlFor="fileInput"
                                     className="btn btn-xs"
                                 >
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        strokeWidth="1.5"
+                                        stroke="currentColor"
+                                        className="w-4 h-4"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125"
+                                        />
+                                        <circle cx="12" cy="12" r="3" fill="red" />
                                     </svg>
                                     Edit
                                 </label>

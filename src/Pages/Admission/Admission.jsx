@@ -9,7 +9,7 @@ const Admission = () => {
             <Helmet>
                 <title>{`Admission - Mentoring`}</title>
             </Helmet>
-            <div className="hero h-72 bg-fixed pt-14" style={{ backgroundImage: 'url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)' }}>
+            <div className="hero h-40 bg-fixed" style={{ backgroundImage: 'url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)' }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">
@@ -17,7 +17,7 @@ const Admission = () => {
                     </div>
                 </div>
             </div>
-            <div  className="grid lg:grid-cols-3 gap-24 lg:mx-40 2 mt-8 mb-20">
+            <div  className="grid lg:grid-cols-3 gap-10 w-9/12 mx-auto 2 mt-8 mb-20">
                 {collage.map(data => (
                     <AdmissionCard
                     key={data._id}
