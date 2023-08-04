@@ -17,7 +17,7 @@ const Admission = () => {
                     </div>
                 </div>
             </div>
-            <div  className="grid lg:grid-cols-3 gap-10 w-9/12 mx-auto 2 mt-8 mb-20">
+            <div  className="grid lg:grid-cols-3 gap-10 lg:w-9/12 mx-auto w-11/12 mt-8 mb-20">
                 {collage.map(data => (
                     <AdmissionCard
                     key={data._id}

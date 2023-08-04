@@ -98,9 +98,6 @@ const Navbar = () => {
                                     </li>
                                     <li><Link to='/profile'>Profile</Link></li>
                                     <li><Link to='/'>Home</Link></li>
-                                    <li><Link to='/collages'>Colleges</Link></li>
-                                    <li><Link to='/admission'>Admission</Link></li>
-                                    <li><Link to='/my-collage'>My College</Link></li>
                                     <li><Link onClick={handleLogOut}>Logout</Link></li>
                                 </ul>
                             </div>

@@ -53,7 +53,7 @@ const MyCollegeDetails = () => {
                 console.log(data)
                 if (data.modifiedCount > 0) {
                     Swal.fire({
-                        title: 'Successfully Updated Information',
+                        title: 'Successfully Updated',
                         text: 'Do you want to continue',
                         icon: 'success',
                         confirmButtonText: 'Cool'
@@ -69,7 +69,7 @@ const MyCollegeDetails = () => {
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">
-                        <h1 className="mb-5 text-4xl font-bold">Admission is going on</h1>
+                        <h1 className="mb-5 text-4xl font-bold">Update Your Info</h1>
                     </div>
                 </div>
             </div>

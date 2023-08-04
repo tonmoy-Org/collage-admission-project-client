@@ -60,7 +60,7 @@ const SignUp = () => {
                                             navigate(from, { replace: true });
                                             reset();
                                             Swal.fire({
-                                                position: "top-end",
+                                                position: "center",
                                                 icon: "success",
                                                 title: "User created successfully.",
                                                 showConfirmButton: false,
