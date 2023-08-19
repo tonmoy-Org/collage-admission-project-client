@@ -72,7 +72,7 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end ps-16">
                     <div className="flex items-center mx-auto font-semibold">
-                        <div className="form-control me-3 hidden md:block">
+                        <div className="lg:flex items-center form-control me-3 hidden md:block">
                             <form onSubmit={handleSearch}>
                                 <input type="text" name="search" placeholder="Search" className="input input-bordered w-24 md:w-auto me-3" required />
                                 <input className="btn btn-outline btn-info" type="submit" value="Search" />
