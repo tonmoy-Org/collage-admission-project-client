@@ -41,7 +41,7 @@ const MyCollegeDetails = () => {
         const img = { image: url };
         const updateInfo = { ...data, ...img }
         console.log(updateInfo)
-        fetch(`https://collage-admission-server-six.vercel.app/admission/${_id}`, {
+        fetch(`http://localhost:5000/admission/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -65,7 +65,7 @@ const MyCollegeDetails = () => {
 
     return (
         <div>
-             <div className="hero h-40 bg-fixed" style={{ backgroundImage: 'url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)' }}>
+            <div className="hero h-40 bg-fixed" style={{ backgroundImage: 'url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)' }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">
@@ -73,9 +73,9 @@ const MyCollegeDetails = () => {
                     </div>
                 </div>
             </div>
-            <div className="flex justify-center gap-10 mx-28  border-dashed border-2 border-[#004e96] m-10">
-                <div className="w-8/12  p-10 my-10">
-                    <div className="text-center text-3xl my-2 ">
+            <div className="lg:flex justify-center items-center gap-8 lg:mx-28 m-5  border-dashed border-2 border-[#004e96] p-2 py-3">
+                <div className="lg:w-8/12 p-10 my-3">
+                    <div className="text-center text-3xl my-2 pb-14">
                         <h1 className="font-semibold text-[#004e96]">Update Your Information</h1>
                     </div>
                     <div className="border-b-4 border-indigo-500 mb-10">
@@ -128,25 +128,25 @@ const MyCollegeDetails = () => {
                         </div>
                     </form>
                 </div>
-                <div className="mt-10">
-                    <img className="w-80 h-80" src={image} alt="" />
-                    <div className="relative mt-4">
-                        <label
-                            htmlFor="fileInput"
-                            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded cursor-pointer"
-                        >
-                            Choose a file
-                        </label>
-                        <input
-                            type="file"
-                            id="fileInput"
-                            className="hidden"
-                            onChange={handleFileChange}
-                        />
+                    <div className="mt-10">
+                        <img className="w-80 h-80 mx-auto" src={image} alt="" />
+                        <div className="relative mt-4">
+                            <label
+                                htmlFor="fileInput"
+                                className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded cursor-pointer"
+                            >
+                                Choose a file
+                            </label>
+                            <input
+                                type="file"
+                                id="fileInput"
+                                className="hidden"
+                                onChange={handleFileChange}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     );
 };
 

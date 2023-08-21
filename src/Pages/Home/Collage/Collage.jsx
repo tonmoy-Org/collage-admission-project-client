@@ -10,7 +10,7 @@ const Collage = () => {
                 <h2 className="text-4xl font-bold">Our Collage</h2>
                 <p className="text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, alias.</p>
             </div>
-            <div className="grid lg:grid-cols-3 lg:mx-52">
+            <div className="grid lg:grid-cols-3 gap-5 lg:mx-52">
                 {slicedCollage.map(data => (
                     <CollageCard
                         key={data._id}

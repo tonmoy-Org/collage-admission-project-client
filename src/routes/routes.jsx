@@ -13,6 +13,7 @@ import Login from "../Pages/Shared/Login/Login";
 import SignUp from "../Pages/Shared/SignUp/SignUp";
 import Profile from "../Pages/Profile/Profile";
 import MyCollegeDetails from "../Pages/MyCollegeDetails/MyCollegeDetails";
+import Review from "../Pages/Review/Review";
 
 const router = createBrowserRouter([
   {
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
       {
         path: 'details/:id',
         element: <Details></Details>,
-        loader: ({params}) => fetch(`https://collage-admission-server-six.vercel.app/collage/${params.id}`)
+        loader: ({params}) => fetch(`http://localhost:5000/collage/${params.id}`)
       },
       {
         path: 'admission',
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
       {
         path: 'admission-field/:id',
         element: <AdmissionFields></AdmissionFields>,
-        loader: ({params}) => fetch(`https://collage-admission-server-six.vercel.app/collage/${params.id}`)
+        loader: ({params}) => fetch(`http://localhost:5000/collage/${params.id}`)
       },
       {
         path: 'my-collage',
@@ -52,7 +53,12 @@ const router = createBrowserRouter([
       {
         path: 'my-collage-details/:id',
         element: <MyCollegeDetails></MyCollegeDetails>,
-        loader: ({params}) => fetch(`https://collage-admission-server-six.vercel.app/admission/${params.id}`)
+        loader: ({params}) => fetch(`http://localhost:5000/admission/${params.id}`)
+      },
+      {
+        path: 'review/:id',
+        element: <Review></Review>,
+        loader: ({params}) => fetch(`http://localhost:5000/admission/${params.id}`)
       },
       {
         path: 'login',

@@ -5,13 +5,13 @@ import { useLoaderData } from "react-router-dom";
 
 const AdmissionFields = () => {
     const data = useLoaderData();
-    const {college_image, college_name, admission_dates } = data;
+    const {college_image, college_name} = data;
     const { register, handleSubmit, formState: { errors } } = useForm();
     const {user} = useAuth();
     const onSubmit = (data) => {
         const college = {college_name: college_name, college_image: college_image};
         const admissionInfo = {...data, ...college};
-        fetch('https://collage-admission-server-six.vercel.app/admission', {
+        fetch('http://localhost:5000/admission', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
