@@ -14,6 +14,7 @@ import SignUp from "../Pages/Shared/SignUp/SignUp";
 import Profile from "../Pages/Profile/Profile";
 import MyCollegeDetails from "../Pages/MyCollegeDetails/MyCollegeDetails";
 import Review from "../Pages/Review/Review";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -39,25 +40,25 @@ const router = createBrowserRouter([
       },
       {
         path: 'admission',
-        element: <Admission></Admission>
+        element: <PrivateRoute><Admission></Admission></PrivateRoute>
       },
       {
         path: 'admission-field/:id',
-        element: <AdmissionFields></AdmissionFields>,
+        element: <PrivateRoute><AdmissionFields></AdmissionFields></PrivateRoute>,
         loader: ({params}) => fetch(`https://collage-admission-server-six.vercel.app/collage/${params.id}`)
       },
       {
         path: 'my-collage',
-        element: <MyCollage></MyCollage>
+        element: <PrivateRoute><MyCollage></MyCollage></PrivateRoute>
       },
       {
         path: 'my-collage-details/:id',
-        element: <MyCollegeDetails></MyCollegeDetails>,
+        element: <PrivateRoute><MyCollegeDetails></MyCollegeDetails></PrivateRoute>,
         loader: ({params}) => fetch(`https://collage-admission-server-six.vercel.app/admission/${params.id}`)
       },
       {
         path: 'review/:id',
-        element: <Review></Review>,
+        element: <PrivateRoute><Review></Review></PrivateRoute>,
         loader: ({params}) => fetch(`https://collage-admission-server-six.vercel.app/admission/${params.id}`)
       },
       {
@@ -70,7 +71,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'profile',
-        element: <Profile></Profile>
+        element: <PrivateRoute><Profile></Profile></PrivateRoute>
       }
     ]
   },

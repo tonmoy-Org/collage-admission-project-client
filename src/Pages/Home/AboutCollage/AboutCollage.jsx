@@ -73,5 +73,5 @@ const Research = () => {
         </div>
     );
 };
-
+<p className="w-16 mx-auto"><span className="loading loading-spinner text-primary w-16"></span></p>
 export default Research;
