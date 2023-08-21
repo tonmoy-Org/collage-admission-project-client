@@ -33,7 +33,7 @@ const Navbar = () => {
         event.preventDefault();
         const searchValue = event.target.search.value;
         console.log(searchValue)
-        fetch(`http://localhost:5000/collage?college_name=${searchValue}`)
+        fetch(`https://collage-admission-server-6wm8a1k88-tonmoy-org.vercel.app/collage?college_name=${searchValue}`)
             .then((res) => res.json())
             .then((data) => {
                 navigate(`/search?results=${encodeURIComponent(JSON.stringify(data))}`);

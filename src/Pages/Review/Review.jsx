@@ -1,13 +1,32 @@
 import { useForm } from "react-hook-form";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Review = () => {
     const data = useLoaderData();
-    const { _id, address, college_name, date_of_birth, email, image, name, phone, subject } = data;
+    const { college_name, image, name, subject } = data;
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = (data) => {
-       console.log(data)
+        const student = {name: name, subject: subject, image: image };
+        const reviewDetails = { ...data, ...student };
+        fetch('https://collage-admission-server-6wm8a1k88-tonmoy-org.vercel.app/review', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(reviewDetails)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                Swal.fire({
+                    title: 'Successfully Added',
+                    text: 'Do you want to continue',
+                    icon: 'success',
+                    confirmButtonText: 'Cool'
+                })
+            })
     }
     return (
         <div>
@@ -15,13 +34,13 @@ const Review = () => {
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">
-                        <h1 className="mb-5 text-4xl font-bold">Update Your Info</h1>
+                        <h1 className="mb-5 text-4xl font-bold">About Our COllage</h1>
                     </div>
                 </div>
             </div>
             <div className="flex justify-center gap-10 lg:mx-28  border-dashed border-2 border-[#004e96] m-5">
                 <div className="lg:w-8/12  p-2 my-10">
-                    <div className="border-b-4 border-indigo-500 mb-10">
+                    <div className="border-b-4 border-primary mb-10">
                         <h1 className="text-2xl">{college_name}</h1>
                         <p className="text-xl py-2">{subject}</p>
                     </div>
@@ -31,8 +50,8 @@ const Review = () => {
                                 <label className="label">
                                     <span className="label-text">Feedback!</span>
                                 </label>
-                                <textarea className="textarea textarea-info" type="text"  {...register("name", { required: true })} name="name" placeholder="review"></textarea>
-                                {errors.name && <span className="text-red-600">This field is required</span>}
+                                <textarea className="textarea textarea-primary" type="text"  {...register("review", { required: true })} name="review" placeholder="review"></textarea>
+                                {errors.review && <span className="text-red-600">This field is required</span>}
                             </div>
                         </div>
                         <div className="form-control mt-6">

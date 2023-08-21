@@ -20,7 +20,7 @@ const SocialLogIn = () => {
                 const newUser = result.user;
                 console.log(newUser);
                 const saveUser = { name: newUser.displayName, email: newUser.email }
-                fetch('http://localhost:5000/users', {
+                fetch('https://collage-admission-server-6wm8a1k88-tonmoy-org.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

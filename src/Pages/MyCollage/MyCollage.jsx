@@ -5,7 +5,6 @@ import MyCollageCard from "./MyCollageCard";
 
 const MyCollage = () => {
     const [myCollage] = useAdmission();
-    console.log(myCollage)
     return (
         <div>
             <Helmet>
