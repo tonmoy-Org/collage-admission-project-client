@@ -1,0 +1,8 @@
+/* For devices with a maximum width of 768px (adjust as needed) */
+@media (max-width: 768px) {
+    .mySwiper {
+        width: 100%;
+
+    }
+  }
+  

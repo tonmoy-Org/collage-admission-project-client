@@ -35,7 +35,7 @@ const router = createBrowserRouter([
       {
         path: 'details/:id',
         element: <Details></Details>,
-        loader: ({params}) => fetch(`https://collage-admission-server-6wm8a1k88-tonmoy-org.vercel.app/collage/${params.id}`)
+        loader: ({params}) => fetch(`https://collage-admission-server-six.vercel.app/collage/${params.id}`)
       },
       {
         path: 'admission',
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
       {
         path: 'admission-field/:id',
         element: <AdmissionFields></AdmissionFields>,
-        loader: ({params}) => fetch(`https://collage-admission-server-6wm8a1k88-tonmoy-org.vercel.app/collage/${params.id}`)
+        loader: ({params}) => fetch(`https://collage-admission-server-six.vercel.app/collage/${params.id}`)
       },
       {
         path: 'my-collage',
@@ -53,12 +53,12 @@ const router = createBrowserRouter([
       {
         path: 'my-collage-details/:id',
         element: <MyCollegeDetails></MyCollegeDetails>,
-        loader: ({params}) => fetch(`https://collage-admission-server-6wm8a1k88-tonmoy-org.vercel.app/admission/${params.id}`)
+        loader: ({params}) => fetch(`https://collage-admission-server-six.vercel.app/admission/${params.id}`)
       },
       {
         path: 'review/:id',
         element: <Review></Review>,
-        loader: ({params}) => fetch(`https://collage-admission-server-6wm8a1k88-tonmoy-org.vercel.app/admission/${params.id}`)
+        loader: ({params}) => fetch(`https://collage-admission-server-six.vercel.app/admission/${params.id}`)
       },
       {
         path: 'login',

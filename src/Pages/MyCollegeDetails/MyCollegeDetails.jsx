@@ -41,7 +41,7 @@ const MyCollegeDetails = () => {
         const img = { image: url };
         const updateInfo = { ...data, ...img }
         console.log(updateInfo)
-        fetch(`https://collage-admission-server-6wm8a1k88-tonmoy-org.vercel.app/admission/${_id}`, {
+        fetch(`https://collage-admission-server-six.vercel.app/admission/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

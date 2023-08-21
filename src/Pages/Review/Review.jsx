@@ -10,7 +10,7 @@ const Review = () => {
     const onSubmit = (data) => {
         const student = {name: name, subject: subject, image: image };
         const reviewDetails = { ...data, ...student };
-        fetch('https://collage-admission-server-6wm8a1k88-tonmoy-org.vercel.app/review', {
+        fetch('https://collage-admission-server-six.vercel.app/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

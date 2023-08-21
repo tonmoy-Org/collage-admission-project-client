@@ -47,7 +47,7 @@ const SignUp = () => {
                         updateUserProfile(data.name, data.photoURL)
                             .then(() => {
                                 const saveUser = { name: data.name, email: data.email ,image: data.photoURL};
-                                fetch('https://collage-admission-server-6wm8a1k88-tonmoy-org.vercel.app/users', {
+                                fetch('https://collage-admission-server-six.vercel.app/users', {
                                     method: "POST",
                                     headers: {
                                         "content-type": "application/json",
