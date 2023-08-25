@@ -4,9 +4,10 @@ import { useContext } from "react";
 import { useState } from "react";
 import SocialLogIn from "../SocialLogIn/SocialLogIn";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
-    const { register, handleSubmit,  formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const { signIn } = useContext(AuthContext);
     const [show, setShow] = useState(false);
     const [error, setError] = useState('');
@@ -34,6 +35,9 @@ const Login = () => {
     }
     return (
         <div className="hero min-h-[100vh] bg-base-200">
+            <Helmet>
+                <title>{`Login - Mentoring`}</title>
+            </Helmet>
             <div className="hero-content flex-col lg:w-6/12">
 
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">

@@ -4,12 +4,13 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogIn from "../SocialLogIn/SocialLogIn";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 
 const SignUp = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { createUser, updateUserProfile } = useContext(AuthContext);
-    
+
     const [show, setShow] = useState(false);
     const [error, setError] = useState('');
 
@@ -46,7 +47,7 @@ const SignUp = () => {
                         console.log(newUser);
                         updateUserProfile(data.name, data.photoURL)
                             .then(() => {
-                                const saveUser = { name: data.name, email: data.email ,image: data.photoURL};
+                                const saveUser = { name: data.name, email: data.email, image: data.photoURL };
                                 fetch('https://collage-admission-server-six.vercel.app/users', {
                                     method: "POST",
                                     headers: {
@@ -66,7 +67,7 @@ const SignUp = () => {
                                                 showConfirmButton: false,
                                                 timer: 1500,
                                             });
-                                            
+
                                         }
                                     })
                                     .catch((error) => console.log(error));
@@ -84,6 +85,9 @@ const SignUp = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>{`Sign Up - Mentoring`}</title>
+            </Helmet>
             <div className="hero  min-h-[110vh] bg-base-200">
                 <div className="hero-content">
                     <div className="card lg:w-[450px] flex-shrink-0 max-w-xl shadow-2xl bg-base-100">

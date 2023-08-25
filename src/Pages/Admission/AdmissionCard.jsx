@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const AdmissionCard = ({ data }) => {
     const { _id, college_image, college_name, admission_dates } = data;
     return (
-        <div className="card w-96 h-40 bg-base-100 shadow-xl image-full">
+        <div className="card lg:w-[380px] w-80 mx-auto bg-base-100 shadow-xl image-full">
             <figure><img className="w-full" src={college_image} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{college_name}</h2>

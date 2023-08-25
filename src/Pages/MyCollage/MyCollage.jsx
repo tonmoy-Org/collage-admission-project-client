@@ -18,15 +18,17 @@ const MyCollage = () => {
                     </div>
                 </div>
             </div>
-            <div className="grid lg:grid-cols-3 lg:mx-52 mt-8 mb-20">
-                {
-                    myCollage.map(data =>
-                        <MyCollageCard
-                            key={data._id}
-                            data={data}
-                        ></MyCollageCard>)
-                }
-            </div>
+            {myCollage.length === 0 ? <p className="w-16 mx-auto"><span className="loading loading-spinner text-primary w-16"></span></p> :
+                <div className="grid lg:grid-cols-3 lg:mx-52 mt-8 mb-20">
+                    {
+                        myCollage.map(data =>
+                            <MyCollageCard
+                                key={data._id}
+                                data={data}
+                            ></MyCollageCard>)
+                    }
+                </div>}
+
         </div>
     );
 };
