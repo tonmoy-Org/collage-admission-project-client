@@ -7,7 +7,7 @@ const Details = () => {
     const { college_image, college_name, admission_dates, research_history,
         events, sports } = data;
     return (
-        <div className="mb-20">
+        <div className="pb-20 bg-blue-50">
              <div className="hero h-40 bg-fixed" style={{ backgroundImage: 'url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)' }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
@@ -16,14 +16,14 @@ const Details = () => {
                     </div>
                 </div>
             </div>
-            <div className="mt-10">
+            <div className="mt-10 mx-6">
                 <div className="card lg:card-side bg-base-100 shadow-xl lg:p-20 gap-24 lg:w-9/12 mx-auto">
                     <div className="lg:mt-9">
                         <figure>
                             <img style={{ width: "300px", height: "300px" }} src={college_image} alt="Album" />
                         </figure>
                     </div>
-                    <div className="mt-16">
+                    <div className="lg:mt-16 p-5">
                         <h2 className="card-title mb-0">Collage Name: {college_name}</h2>
                         <p className="pt-2">{admission_dates}</p>
                         <p className="pt-5">{research_history}</p>

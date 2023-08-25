@@ -8,9 +8,9 @@ const Collage = () => {
     
     return (
         <div className="mb-20">
-            <div className="text-center py-20">
+            <div className="text-center pt-20 pb-10 px-6">
                 <h2 className="text-4xl font-bold">Our Collage</h2>
-                <p className="text-xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, alias.</p>
+                <p className="lg:text-xl pt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, alias.</p>
             </div>
             
             {/* Conditional rendering based on collage data */}
