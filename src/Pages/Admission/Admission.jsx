@@ -18,7 +18,7 @@ const Admission = () => {
                 </div>
             </div>
             {collage?.length === 0 ? <p className="w-16 mx-auto"><span className="loading loading-spinner text-primary w-16"></span></p> :
-                <div className="grid lg:grid-cols-3 gap-8 mt-8 mb-20 lg:w-10/12 mx-auto">
+                <div className="grid lg:grid-cols-4 gap-5 mt-8 mb-20 lg:w-10/12 mx-auto">
                     {collage.map(data => (
                         <AdmissionCard
                             key={data._id}

@@ -16,7 +16,7 @@ const Navbar = () => {
 
     const handleToggle = (e) => {
         if (e.target.checked) {
-            setTheme("dark");
+            setTheme("black");
         } else {
             setTheme("light");
         }
@@ -33,17 +33,17 @@ const Navbar = () => {
         event.preventDefault();
         const searchValue = event.target.search.value;
         console.log(searchValue)
-        fetch(`https://collage-admission-server-six.vercel.app/collage?college_name=${searchValue}`)
+        fetch(`http://localhost:5000/collage?college_name=${searchValue}`)
             .then((res) => res.json())
             .then((data) => {
                 navigate(`/search?results=${encodeURIComponent(JSON.stringify(data))}`);
 
             });
     };
-    // console.log(searchResults)
+
     return (
-        <div>
-            <div className="navbar   bg-base-100 lg:px-6">
+        <div className='lg:pb-20' data-theme="light">
+            <div className="navbar shadow-lg bg-[#FFFFFFCC] lg:px-6 fixed z-10">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -74,8 +74,8 @@ const Navbar = () => {
                     <div className="flex items-center mx-auto font-semibold">
                         <div className="lg:flex items-center form-control me-3 hidden md:block">
                             <form onSubmit={handleSearch}>
-                                <input type="text" name="search" placeholder="Search" className="input input-bordered w-24 md:w-auto me-3" required />
-                                <input className="btn btn-outline btn-info" type="submit" value="Search" />
+                                <input type="text" name="search" placeholder="Search" className="py-1 bg-base-300 ps-2 me-3 lg:w-60" required />
+                                <input className="py-1 bg-primary text-white px-3" type="submit" value="Search" />
                             </form>
                         </div>
                         {user &&
@@ -83,7 +83,7 @@ const Navbar = () => {
                                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                     <div className="w-10 rounded-full">
                                         <div>
-                                            <img src={user.photoURL}
+                                            <img src={user?.photoURL}
                                             />
                                         </div>
                                     </div>
@@ -91,8 +91,8 @@ const Navbar = () => {
                                 <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-72">
                                     <li>
                                         <p className="justify-between">
-                                            {user.displayName} <br />
-                                            {user.email}
+                                            {user?.displayName} <br />
+                                            {user?.email}
                                             <span className="badge">New</span>
                                         </p>
                                     </li>

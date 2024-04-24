@@ -11,7 +11,7 @@ const AdmissionFields = () => {
     const onSubmit = (data) => {
         const college = {college_name: college_name, college_image: college_image};
         const admissionInfo = {...data, ...college};
-        fetch('https://collage-admission-server-six.vercel.app/admission', {
+        fetch('http://localhost:5000/admission', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -42,51 +42,51 @@ const AdmissionFields = () => {
             <div className="w-9/12 mx-auto border-dashed border-2 border-[#004e96] p-10 my-10">
                 <h1 className="text-center text-3xl my-6 font-semibold text-[#004e96]">Submit Your Information</h1>
 
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-3">
                     <div className='grid lg:grid-cols-2 gap-8'>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Candidate Name</span>
+                                <span className="label-text font-semibold">Candidate Name</span>
                             </label>
-                            <input type="text"  {...register("name", { required: true })} name="name" placeholder="class name" className="input input-bordered" />
+                            <input type="text"  {...register("name", { required: true })} name="name" placeholder="class name" className="input input-bordered rounded-none bg-base-200" />
                             {errors.name && <span className="text-red-600">This field is required</span>}
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Subject</span>
+                                <span className="label-text font-semibold">Subject</span>
                             </label>
-                            <input type="text"  {...register("subject", { required: true })} name="subject" placeholder="subject" className="input input-bordered" />
+                            <input type="text"  {...register("subject", { required: true })} name="subject" placeholder="subject" className="input input-bordered rounded-none bg-base-200" />
                             {errors.subject && <span className="text-red-600">This field is required</span>}
                         </div>
                     </div>
                     <div className='grid lg:grid-cols-2 gap-8'>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Candidate Email</span>
+                                <span className="label-text font-semibold">Candidate Email</span>
                             </label>
-                            <input type="email" defaultValue={user?.email} {...register("email", { required: true })} name="email" placeholder="candidate Email" className="input input-bordered" />
+                            <input type="email" defaultValue={user?.email} {...register("email", { required: true })} name="email" placeholder="candidate Email" className="input input-bordered rounded-none bg-base-200" />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Candidate Phone number</span>
+                                <span className="label-text font-semibold">Candidate Phone number</span>
                             </label>
-                            <input type="number"{...register("phone", { required: true })} name="phone" placeholder="phone" className="input input-bordered" />
+                            <input type="number"{...register("phone", { required: true })} name="phone" placeholder="phone" className="input input-bordered rounded-none bg-base-200" />
                             {errors.phone && <span className="text-red-600">This field is required</span>}
                         </div>
                     </div>
                     <div className='grid lg:grid-cols-2 gap-8'>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Address</span>
+                                <span className="label-text font-semibold">Address</span>
                             </label>
-                            <input type="text"{...register("address", { required: true })} name="address" placeholder="address" className="input input-bordered" />
+                            <input type="text"{...register("address", { required: true })} name="address" placeholder="address" className="input input-bordered rounded-none bg-base-200" />
                             {errors.address && <span className="text-red-600">This field is required</span>}
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Date of birth</span>
+                                <span className="label-text font-semibold">Date of birth</span>
                             </label>
-                            <input type="text" {...register("date_of_birth", { required: true })} name="date_of_birth" placeholder="date of birth" className="input input-bordered" />
+                            <input type="text" {...register("date_of_birth", { required: true })} name="date_of_birth" placeholder="date of birth" className="input input-bordered rounded-none bg-base-200" />
                             {errors.date_of_birth && <span className="text-red-600">This field is required</span>}
                         </div>
                     </div>
@@ -94,14 +94,14 @@ const AdmissionFields = () => {
 
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Image</span>
+                                <span className="label-text font-semibold">Image</span>
                             </label>
-                            <input type="text"  {...register("image", { required: true })} name="image" placeholder="image" className="input input-bordered" />
+                            <input type="text"  {...register("image", { required: true })} name="image" placeholder="image" className="input input-bordered rounded-none bg-base-200" />
                             {errors.image && <span className="text-red-600">This field is required</span>}
                         </div>
                     </div>
                     <div className="form-control mt-6">
-                        <input className="btn btn-primary text-white" type="submit" value="Submit" />
+                        <input className="btn btn-primary rounded-none text-white" type="submit" value="Submit" />
                     </div>
                 </form>
             </div>

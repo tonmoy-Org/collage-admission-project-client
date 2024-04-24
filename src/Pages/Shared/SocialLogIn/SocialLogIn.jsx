@@ -18,9 +18,8 @@ const SocialLogIn = () => {
         signInWithPopup(auth, googleProvider)
             .then(result => {
                 const newUser = result.user;
-                console.log(newUser);
-                const saveUser = { name: newUser.displayName, email: newUser.email }
-                fetch('https://collage-admission-server-six.vercel.app/users', {
+                const saveUser = { name: newUser.displayName, email: newUser.email, photoURL: newUser.photoURL }
+                fetch('http://localhost:5000/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

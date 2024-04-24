@@ -4,8 +4,9 @@ import useAuth from "./useAuth";
 
 const useAdmission = () => {
     const {user} = useAuth();
+    console.log(user?.email)
     const { data: myCollage = [], refetch } = useQuery(['myCollage'], async () => {
-        const res = await fetch(`https://collage-admission-server-six.vercel.app/admission?email=${user?.email}`); // Replace with the correct URL for fetching user data
+        const res = await fetch(`http://localhost:5000/myAdmission/admission/${user?.email}`);
         return res.json();
     });
     return [myCollage, refetch];

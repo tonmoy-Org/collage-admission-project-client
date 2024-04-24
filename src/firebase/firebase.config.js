@@ -5,12 +5,13 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_apiKey,
-  authDomain: import.meta.env.VITE_authDomain,
-  projectId: import.meta.env.VITE_projectId,
-  storageBucket: import.meta.env.VITE_storageBucket,
-  messagingSenderId: import.meta.env.VITE_messagingSenderId,
-  appId: import.meta.env.VITE_appId,
+  apiKey: "AIzaSyAyKuOhE8cRIz-_HrxqmT0ABzLz84imrik",
+  authDomain: "mentoring-org.firebaseapp.com",
+  databaseURL: "https://mentoring-org-default-rtdb.firebaseio.com",
+  projectId: "mentoring-org",
+  storageBucket: "mentoring-org.appspot.com",
+  messagingSenderId: "392433034586",
+  appId: "1:392433034586:web:409a598127bd37c18d3f63"
 };
 
 // Initialize Firebase

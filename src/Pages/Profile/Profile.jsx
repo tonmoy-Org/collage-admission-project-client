@@ -54,7 +54,7 @@ const Profile = () => {
         })
     }
 
-
+console.log(user?.photoURL)
 
     return (
         <div>
@@ -73,11 +73,11 @@ const Profile = () => {
                 <div className="flex items-center gap-3">
                     <div className="avatar">
                         <div className="w-16 rounded-full">
-                            <img src={user.photoURL} />
+                            <img src={user?.photoURL} />
                         </div>
                     </div>
                     <div>
-                        <h1 className="text-xl font-bold">{user.displayName}</h1>
+                        <h1 className="text-xl font-bold">{user?.displayName}</h1>
                         <p>Your personal account</p>
                     </div>
                 </div>
