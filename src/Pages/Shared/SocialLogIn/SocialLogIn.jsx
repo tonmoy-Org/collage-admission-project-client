@@ -19,7 +19,7 @@ const SocialLogIn = () => {
             .then(result => {
                 const newUser = result.user;
                 const saveUser = { name: newUser.displayName, email: newUser.email, photoURL: newUser.photoURL }
-                fetch('http://localhost:5000/users', {
+                fetch('https://collage-admission-project-server.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
